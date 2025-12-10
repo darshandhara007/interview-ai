@@ -90,14 +90,14 @@ export async function POST(request: Request) {
         if (toolCallId) {
             // Vapi error format
             return Response.json({
-                results: [
+                results: [{
                      toolCallId,
                         result: JSON.stringify({
                             success: false,
                             error: "Failed to generate interview"
                         })
                     }
-                ]
+                          }]
             }, { status: 200 }); // Note: Vapi expects 200 even for tool errors
         } else {
             return Response.json({ success: false, error }, { status: 500 });
