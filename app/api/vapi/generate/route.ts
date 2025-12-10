@@ -67,15 +67,17 @@ export async function POST(request: Request) {
         if (toolCallId) {
             // Vapi expects this format
             return Response.json({
-                results: [
-                     toolCallId,
-                        result: JSON.stringify({
-                            success: true,
-                            message: "Interview successfully generated",
-                            interviewId: docRef.id
-                        })
-                    }
-                ]
+               results: [
+  {
+    toolCallId,
+    result: JSON.stringify({
+      success: true,
+      message: "Interview successfully generated",
+      interviewId: docRef.id
+    })
+  }
+]
+
             }, { status: 200 });
         } else {
             // Direct API call response
